@@ -30,7 +30,9 @@ RunService.Stepped:Connect(function()
 				LeftLeg = pchar:FindFirstChild("Left Leg"),
 				Torso = pchar:FindFirstChild("Torso")
 			}
-
+			
+			local Value = 0.3
+			
 			local Distance = (hrp.Position - phrp.Position).Magnitude
 			if Distance <= range then
 				local tool = char and char:FindFirstChildOfClass("Tool")
@@ -39,40 +41,21 @@ RunService.Stepped:Connect(function()
 					tool:Activate()
 					
 					firetouchinterest(Handle, limbs.RightArm, 0)
-					firetouchinterest(Handle, limbs.RightArm, 0)
-					
-					
 					firetouchinterest(Handle, limbs.RightArm, 1)
-					firetouchinterest(Handle, limbs.RightArm, 1)
-
-
-
+					
+					task.wait(Value)
 
 					firetouchinterest(Handle, limbs.LeftArm, 0)
-					firetouchinterest(Handle, limbs.LeftArm, 0)
-
-
-					firetouchinterest(Handle, limbs.LeftArm, 1)
 					firetouchinterest(Handle, limbs.LeftArm, 1)
 
-
-
+					task.wait(Value)
 
 					firetouchinterest(Handle, limbs.RightLeg, 0)
-					firetouchinterest(Handle, limbs.RightLeg, 0)
-
-
-					firetouchinterest(Handle, limbs.RightLeg, 1)
 					firetouchinterest(Handle, limbs.RightLeg, 1)
 
-
-
+					task.wait(Value)
 
 					firetouchinterest(Handle, limbs.LeftArm, 0)
-					firetouchinterest(Handle, limbs.LeftLeg, 0)
-					
-					
-					firetouchinterest(Handle, limbs.LeftArm, 1)
 					firetouchinterest(Handle, limbs.LeftLeg, 1)
 				end
 			end
