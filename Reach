@@ -40,6 +40,11 @@ RunService.Stepped:Connect(function()
 					
 					firetouchinterest(Handle, limbs.RightArm, 0)
 					firetouchinterest(Handle, limbs.RightArm, 0)
+					
+					
+					firetouchinterest(Handle, limbs.RightArm, 1)
+					firetouchinterest(Handle, limbs.RightArm, 1)
+
 
 
 
@@ -47,14 +52,28 @@ RunService.Stepped:Connect(function()
 					firetouchinterest(Handle, limbs.LeftArm, 0)
 
 
+					firetouchinterest(Handle, limbs.LeftArm, 1)
+					firetouchinterest(Handle, limbs.LeftArm, 1)
+
+
+
 
 					firetouchinterest(Handle, limbs.RightLeg, 0)
 					firetouchinterest(Handle, limbs.RightLeg, 0)
+
+
+					firetouchinterest(Handle, limbs.RightLeg, 1)
+					firetouchinterest(Handle, limbs.RightLeg, 1)
+
 
 
 
 					firetouchinterest(Handle, limbs.LeftArm, 0)
 					firetouchinterest(Handle, limbs.LeftLeg, 0)
+					
+					
+					firetouchinterest(Handle, limbs.LeftArm, 1)
+					firetouchinterest(Handle, limbs.LeftLeg, 1)
 				end
 			end
 		end
