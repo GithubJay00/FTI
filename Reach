@@ -1,0 +1,62 @@
+--// Settings \--
+local range = 15
+
+
+--// Variables \--
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local StarterGui = game:GetService("StarterGui")
+local player = Players.LocalPlayer
+
+function Notify()
+	StarterGui:SetCore("SendNotification", {Title = "FTI", Text = "Reach"})
+end
+Notify()
+
+--// Script \--
+RunService.Stepped:Connect(function()
+	for _, p in pairs(Players:GetPlayers()) do
+		if p.Name ~= player.Name then
+			local pchar = p.Character
+			local phrp = pchar and pchar:FindFirstChild("HumanoidRootPart")
+
+			local char = player.Character
+			local hrp = char:WaitForChild("HumanoidRootPart")
+			
+			local limbs = {
+				RightArm = pchar:FindFirstChild("Right Arm"),
+				LeftArm = pchar:FindFirstChild("Left Arm"),
+				RightLeg = pchar:FindFirstChild("Right Leg"),
+				LeftLeg = pchar:FindFirstChild("Left Leg"),
+				Torso = pchar:FindFirstChild("Torso")
+			}
+
+			local Distance = (hrp.Position - phrp.Position).Magnitude
+			if Distance <= range then
+				local tool = char and char:FindFirstChildOfClass("Tool")
+				local Handle = tool and tool:FindFirstChild("Handle")
+				if tool and Handle then
+					tool:Activate()
+					
+					firetouchinterest(Handle, limbs.RightArm, 0)
+					firetouchinterest(Handle, limbs.RightArm, 0)
+
+
+
+					firetouchinterest(Handle, limbs.LeftArm, 0)
+					firetouchinterest(Handle, limbs.LeftArm, 0)
+
+
+
+					firetouchinterest(Handle, limbs.RightLeg, 0)
+					firetouchinterest(Handle, limbs.RightLeg, 0)
+
+
+
+					firetouchinterest(Handle, limbs.LeftArm, 0)
+					firetouchinterest(Handle, limbs.LeftLeg, 0)
+				end
+			end
+		end
+	end
+end)
