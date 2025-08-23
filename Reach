@@ -41,8 +41,8 @@ RunService.Stepped:Connect(function()
 				if tool and Handle then
 					tool:Activate()
 
-					firetouchinterest(limbs.Head, Handle, 0)	firetouchinterest(limbs.HumanoidRootPart, Handle, 0)	firetouchinterest(limbs.Torso, Handle, 0)	firetouchinterest(limbs.RightArm, Handle, 0)	firetouchinterest(limbs.LeftArm, Handle, 0)		firetouchinterest(limbs.RightLeg, Handle, 0)	firetouchinterest(limbs.LeftArm, Handle, 0)
-					firetouchinterest(limbs.Head, Handle, 1)	firetouchinterest(limbs.HumanoidRootPart, Handle, 1)	firetouchinterest(limbs.Torso, Handle, 1)	firetouchinterest(limbs.RightArm, Handle, 1)	firetouchinterest(limbs.LeftArm, Handle, 1)		firetouchinterest(limbs.RightLeg, Handle, 1)	firetouchinterest(limbs.LeftArm, Handle, 1)
+					firetouchinterest(limbs.HumanoidRootPart, Handle, 0)
+					firetouchinterest(limbs.HumanoidRootPart, Handle, 1)
 
 				end
 			end
