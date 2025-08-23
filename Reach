@@ -28,10 +28,11 @@ RunService.Stepped:Connect(function()
 				LeftArm = pchar:FindFirstChild("Left Arm"),
 				RightLeg = pchar:FindFirstChild("Right Leg"),
 				LeftLeg = pchar:FindFirstChild("Left Leg"),
-				Torso = pchar:FindFirstChild("Torso")
+				Torso = pchar:FindFirstChild("Torso"),
+				HumanoidRootPart = pchar:FindFirstChild("HumanoidRootPart"),
+				Head = pchar:FindFirstChild("Head")
 			}
 
-			local Value = 0.1
 
 			local Distance = (hrp.Position - phrp.Position).Magnitude
 			if Distance <= range then
@@ -40,25 +41,33 @@ RunService.Stepped:Connect(function()
 				if tool and Handle then
 					tool:Activate()
 
+					firetouchinterest(limbs.Head, Handle, 0)
+					firetouchinterest(limbs.Head, Handle, 1)
+
+
+					firetouchinterest(limbs.HumanoidRootPart, Handle, 0)
+					firetouchinterest(limbs.HumanoidRootPart, Handle, 1)
+					
+
 					firetouchinterest(limbs.Torso, Handle, 0)
 					firetouchinterest(limbs.Torso, Handle, 1)
 
-					task.wait(Value)
+
 					
 					firetouchinterest(limbs.RightArm, Handle, 0)
 					firetouchinterest(limbs.RightArm, Handle, 1)
 
-					task.wait(Value)
+
 
 					firetouchinterest(limbs.LeftArm, Handle, 0)
 					firetouchinterest(limbs.LeftArm, Handle, 1)
 
-					task.wait(Value)
+
 
 					firetouchinterest(limbs.RightLeg, Handle, 0)
 					firetouchinterest(limbs.RightLeg, Handle, 1)
 
-					task.wait(Value)
+
 
 					firetouchinterest(limbs.LeftArm, Handle, 0)
 					firetouchinterest(limbs.LeftArm, Handle, 1)
