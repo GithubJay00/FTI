@@ -1,5 +1,5 @@
 --// Settings \--
-local range = 20
+local range = 10
 
 
 --// Variables \--
@@ -39,7 +39,7 @@ RunService.Stepped:Connect(function()
 			}
 
 			
-			if humanoid and humanoid.Health ~= 0 then
+			--if humanoid and humanoid.Health <= 0 and phumanoid and phumanoid.Health <= 0 then
 				local Distance = (hrp.Position - phrp.Position).Magnitude
 				if Distance <= range then
 					local tool = char and char:FindFirstChildOfClass("Tool")
@@ -52,7 +52,7 @@ RunService.Stepped:Connect(function()
 
 					end
 				end
-			end
+			--end
 		end
 	end
 end)
