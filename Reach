@@ -31,7 +31,7 @@ RunService.Stepped:Connect(function()
 				Torso = pchar:FindFirstChild("Torso")
 			}
 
-			local Value = 0.7
+			local Value = 0.1
 
 			local Distance = (hrp.Position - phrp.Position).Magnitude
 			if Distance <= range then
