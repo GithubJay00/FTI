@@ -1,5 +1,5 @@
 --// Settings \--
-local range = 20
+local range = 6
 
 
 --// Variables \--
