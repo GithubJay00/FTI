@@ -1,5 +1,5 @@
 --// Settings \--
-local range = 20
+local range = 6
 
 
 --// Variables \--
@@ -20,11 +20,9 @@ RunService.Stepped:Connect(function()
 			
 			local pchar = p.Character
 			local phrp = pchar and pchar:FindFirstChild("HumanoidRootPart")
-			
 
 			local char = player.Character
 			local hrp = char:WaitForChild("HumanoidRootPart")
-			
 
 			local limbs = {
 				RightArm = pchar:FindFirstChild("Right Arm"),
@@ -37,18 +35,18 @@ RunService.Stepped:Connect(function()
 			}
 
 			
-				local Distance = (hrp.Position - phrp.Position).Magnitude
-				if Distance <= range then
-					local tool = char and char:FindFirstChildOfClass("Tool")
-					local Handle = tool and tool:FindFirstChild("Handle")
-					if tool and Handle then
-						tool:Activate()
+			local Distance = (hrp.Position - phrp.Position).Magnitude
+			if Distance <= range then
+				local tool = char and char:FindFirstChildOfClass("Tool")
+				local Handle = tool and tool:FindFirstChild("Handle")
+				if tool and Handle then
+					tool:Activate()
 
-						firetouchinterest(limbs.HumanoidRootPart, Handle, 0) -- 		- . -- . -- . -- . -- . --		-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
-						firetouchinterest(limbs.HumanoidRootPart, Handle, 1)
-
-					end
+					firetouchinterest(limbs.HumanoidRootPart, Handle, 0) -- 		- . -- . -- . -- . -- . --		-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
+					firetouchinterest(limbs.HumanoidRootPart, Handle, 1)
+						
 				end
+			end
 		end
 	end
 end)
