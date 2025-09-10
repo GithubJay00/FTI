@@ -21,7 +21,7 @@ RunService.Stepped:Connect(function()
 			local phrp = pchar and pchar:FindFirstChild("HumanoidRootPart")
 
 			local char = player.Character
-			local hrp = char:WaitForChild("HumanoidRootPart")
+			local hrp = char:FindFirstChild("HumanoidRootPart")
 
 			local limbs = {
 				RightArm = pchar:FindFirstChild("Right Arm"),
