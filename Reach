@@ -1,66 +1,84 @@
---// Settings \--
-local range = 6
+--{{ Settings }}--
+
+local range = 6.5
+ 
+------------------
 
 
---// Variables \--
+
+--{{ Variables }}--
+
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local StarterGui = game:GetService("StarterGui")
 local player = Players.LocalPlayer
+
+------------------
+
+
+
+--{{ Notify }}--
 
 function Notify()
 	StarterGui:SetCore("SendNotification", {Title = "FTI", Text = "Reach"})
 end
 Notify()
 
---// Script \--
+------------------
+
+
+
+--{{ Script }}--
+
 RunService.Stepped:Connect(function()
 	for _, p in pairs(Players:GetPlayers()) do
 		if p.Name ~= player.Name then
-			local pchar = p.Character
-			local phrp = pchar and pchar:FindFirstChild("HumanoidRootPart")
+			
+			local qChar = p.Character
+			local qHRP = qChar and qChar:FindFirstChild("HumanoidRootPart")
+			local qHM = qChar and qChar:FindFirstChildOfClass("Humanoid")
+			
+			local Char = player.Character
+			local HRP = Char and Char:FindFirstChild("HumanoidRootPart")
+			local HM = Char and Char:FindFirstChildOfClass("Humanoid")
+			
+			if HM and qHM then
+				if HM.Health > 0 and qHM.Health > 0 then
+					
+					local limbs = {
+						RightArm = qChar:FindFirstChild("Right Arm"),
+						LeftArm = qChar:FindFirstChild("Left Arm"),
+						RightLeg = qChar:FindFirstChild("Right Leg"),
+						LeftLeg = qChar:FindFirstChild("Left Leg"),
+						Torso = qChar:FindFirstChild("Torso"),
+						HumanoidRootPart = qChar:FindFirstChild("HumanoidRootPart"),
+						Head = qChar:FindFirstChild("Head")
+					}
 
-			local char = player.Character
-			local hrp = char:FindFirstChild("HumanoidRootPart")
+					local Distance = (HRP.Position - qHRP.Position).Magnitude
 
-			local limbs = {
-				RightArm = pchar:FindFirstChild("Right Arm"),
-				LeftArm = pchar:FindFirstChild("Left Arm"),
-				RightLeg = pchar:FindFirstChild("Right Leg"),
-				LeftLeg = pchar:FindFirstChild("Left Leg"),
-				Torso = pchar:FindFirstChild("Torso")
-			}
+					if Distance <= range then
 
-			local Value = 0.3
+						local tool = Char and Char:FindFirstChildOfClass("Tool")
+						local Handle = tool and tool:FindFirstChild("Handle")
 
-			local Distance = (hrp.Position - phrp.Position).Magnitude
-			if Distance <= range then
-				local tool = char and char:FindFirstChildOfClass("Tool")
-				local Handle = tool and tool:FindFirstChild("Handle")
-				if tool and Handle then
-					tool:Activate()
+						if tool and Handle then
 
-					firetouchinterest(Handle, limbs.RightArm, 0)
-					firetouchinterest(Handle, limbs.RightArm, 1)
+							tool:Activate()
 
-					task.wait(Value)
+							local Qhrp = limbs.HumanoidRootPart
+							local QHead = limbs.Head
 
-					firetouchinterest(Handle, limbs.LeftArm, 0)
-					firetouchinterest(Handle, limbs.LeftArm, 1)
+							firetouchinterest(Qhrp, Handle, 0) firetouchinterest(QHead, Handle, 0)
+							firetouchinterest(Qhrp, Handle, 1) firetouchinterest(QHead, Handle, 1)
+							firetouchinterest(Qhrp, Handle, 0) firetouchinterest(QHead, Handle, 0)
 
-					task.wait(Value)
-
-					firetouchinterest(Handle, limbs.RightLeg, 0)
-					firetouchinterest(Handle, limbs.RightLeg, 1)
-
-					task.wait(Value)
-
-					firetouchinterest(Handle, limbs.LeftArm, 0)
-					firetouchinterest(Handle, limbs.LeftLeg, 1)
+						end
+					end
 				end
 			end
 		end
 	end
 end)
 
--- normal reach
+------------------
