@@ -58,21 +58,17 @@ RunService.Stepped:Connect(function()
 					local Distance = (HRP.Position - qHRP.Position).Magnitude
 
 					if Distance <= range then
-
+						
 						local tool = Char and Char:FindFirstChildOfClass("Tool")
 						local Handle = tool and tool:FindFirstChild("Handle")
-
+						
 						if tool and Handle then
-
 							tool:Activate()
-
 							local Qhrp = limbs.HumanoidRootPart
-							local QHead = limbs.Head
 
-							firetouchinterest(Qhrp, Handle, 0) firetouchinterest(QHead, Handle, 0)
-							firetouchinterest(Qhrp, Handle, 1) firetouchinterest(QHead, Handle, 1)
-							firetouchinterest(Qhrp, Handle, 0) firetouchinterest(QHead, Handle, 0)
-
+							firetouchinterest(Qhrp, Handle, 0)
+							firetouchinterest(Qhrp, Handle, 1)
+							firetouchinterest(Qhrp, Handle, 0)
 						end
 					end
 				end
