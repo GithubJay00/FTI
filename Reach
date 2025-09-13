@@ -1,6 +1,6 @@
 --{{ Settings }}--
 
-local range = 6
+local range = 6.5
  
 ------------------
 
@@ -68,7 +68,7 @@ RunService.Stepped:Connect(function()
 
 							firetouchinterest(Qhrp, Handle, 0)
 							firetouchinterest(Qhrp, Handle, 1)
-							firetouchinterest(Qhrp, Handle, 0)
+							--firetouchinterest(Qhrp, Handle, 0)
 						end
 					end
 				end
