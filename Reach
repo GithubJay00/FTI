@@ -1,6 +1,6 @@
 --{{ Settings }}--
 
-local range = 5.5
+local range = 6
  
 ------------------
 
