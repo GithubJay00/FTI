@@ -68,7 +68,7 @@ RunService.Stepped:Connect(function()
 
 							firetouchinterest(Qhrp, Handle, 0)
 							firetouchinterest(Qhrp, Handle, 1)
-							--firetouchinterest(Qhrp, Handle, 0)
+							firetouchinterest(Qhrp, Handle, 0)
 						end
 					end
 				end
