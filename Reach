@@ -2,7 +2,7 @@
 
 getgenv().Settings = {
 	
-	Range = 7 , 
+	Range = 20 , 
 	
 	Toggle = true ,
 	
